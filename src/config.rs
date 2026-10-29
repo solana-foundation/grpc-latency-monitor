@@ -137,6 +137,8 @@ pub struct FiltersConfig {
     pub transactions_account_include: Vec<String>,
     pub allow_all_accounts: bool,
     pub allow_all_transactions: bool,
+    /// Yellowstone `failed`: None sends all, false only successful, true only failed.
+    pub transactions_failed: Option<bool>,
 }
 
 impl FiltersConfig {

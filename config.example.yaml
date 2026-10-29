@@ -54,10 +54,13 @@ filters:
   # allow_all_accounts: true
   # Transaction subscription: match transactions mentioning any listed account.
   # Maximum 100 entries. Set [] only with allow_all_transactions: true (default false).
-  # Votes and failed transactions remain included.
+  # Votes remain included.
   transactions_account_include:
     - "pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA"
   # allow_all_transactions: true
+  # Omit to receive failed and successful transactions; false excludes failed
+  # transactions, true sends only failed ones. Changing it starts new transaction histories.
+  # transactions_failed: false
   # One unfiltered slot subscription contains every status, independent of commitment.
   # All providers receive identical requests.
 
