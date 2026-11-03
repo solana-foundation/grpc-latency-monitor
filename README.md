@@ -23,6 +23,19 @@ cargo run --release -- --config config.local.yaml
 
 Then open <http://localhost:3000>. For production deployments, see [Operations](docs/operations.md).
 
+## Solana Foundation deployment
+
+The numbers on [solana.com/data](https://solana.com/data) come from the Solana Foundation's deployment, which runs from [rpc-latency-monitor](https://github.com/solana-foundation/rpc-latency-monitor), not this repo. Its Ansible role builds this repo at a pinned commit and writes each host's config. The provider list is in [`deploy/ansible/roles/grpc_bench/defaults/main.yml`](https://github.com/solana-foundation/rpc-latency-monitor/blob/main/deploy/ansible/roles/grpc_bench/defaults/main.yml), and tokens are kept out of the repo.
+
+| Provider | Endpoint |
+| --- | --- |
+| Helius | `https://laserstream-mainnet-<region>.helius-rpc.com`, the LaserStream region nearest each host |
+| Triton | `https://riptide.rpcpool.com` |
+| Alchemy | `https://solana-mainnet.streaming.alchemy.com` |
+| QuickNode | Our QuickNode endpoint's host on `:443` |
+
+To change an endpoint, open a PR against that file in rpc-latency-monitor.
+
 ## Docs
 
 [Methodology](docs/methodology.md) · [Accuracy](docs/accuracy.md) · [Operations](docs/operations.md) · [Dashboards](docs/dashboards.md) · [Schema](sql/README.md) · [Example queries](sql/reports.sql) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
